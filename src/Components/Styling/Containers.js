@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { ThemeMain, ThemeSub2, ThemeSub } from './Theme'
+import { ThemeMain, ThemeSub2, ThemeSub, ThemeAccent, ThemeAccent2 } from './Theme'
+import { Link} from 'react-router-dom';
+
 
 export const MainCont = styled.div`
   background-color: ${ThemeMain};
@@ -24,7 +26,7 @@ export const MainCol = styled(Col)`
 `;
 export const PictureMainCol = styled(Col)`
   min-width: 33%;
-  min-height: 300px;
+  min-height: 350px;
   align-items: center;
 `;
 
@@ -42,7 +44,8 @@ export const Row = styled.div`
 export const TitleRow = styled(Row)`
   justify-content: center;
   align-items: center;
-  min-height: 800px;
+  min-height: 500px;
+  margin-bottom: 150px
 `;
 
 export const PictureMainRow = styled(Row)`
@@ -62,8 +65,35 @@ export const MenuButtonCont = styled.div`
   z-index: 10;
   cursor: pointer;
   top: 25px;
-  left: 25px
+  left: ${props => props.showSideBar ? '275px' : '25px'};
   &:hover {
     background-color: ${ThemeSub}
+  }
+`;
+
+export const SideBar = styled.div`
+  position: absolute;
+  z-index: 10;
+  width: ${props => props.showSideBar ? '250px' : '0px'};;
+  height: 100vh;
+  transition: width: 2s;
+  background-color: ${ThemeSub};
+  box-shadow: 2px 2px 15px ${ThemeSub2};
+`;
+
+export const SideBarContentCont = styled(Col)`
+  justify-content: space-between;
+`;
+
+export const NavLink = styled(Link)`
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.25em;
+  margin: 15px 0;
+  padding: 10px;
+  color: ${ThemeAccent2};
+  &:hover{
+    background-color: ${ThemeAccent};
+    border-radius: 5px;
   }
 `;

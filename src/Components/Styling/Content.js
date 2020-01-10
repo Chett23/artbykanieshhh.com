@@ -6,4 +6,5 @@ export const Title = styled.h1`
   margin: ${props => props.margin || '0.67em 0 '}
   color: ${props => props.color || ThemeSub2}
   font-weight: ${props => props.weight || 'bold'}
+  text-align: center;
 `;

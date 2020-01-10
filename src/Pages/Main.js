@@ -10,7 +10,7 @@ export default function Main() {
   return (
     <MainCol>
       <TitleRow>
-        <Title size='3em'>Art By Kanieshhh!</Title>
+        <Title title='logo goes here.' size='3em'>Art By Kanieshhh!</Title>
       </TitleRow>
       <PictureMainRow>
         <PictureMainCol>Picture</PictureMainCol>
