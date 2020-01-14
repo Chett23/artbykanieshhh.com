@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import './App.css';
 import styled from 'styled-components'
 
-
 import { Switch, Route } from 'react-router-dom';
 
 import Main from './Pages/Main'
 import Portfolio from './Pages/Portfolio'
 import Request from './Pages/Request'
 import Pricing from './Pages/Pricing'
+import PageNotFound from './Pages/PageNotFound'
+
 import { MainCont, MenuButtonCont, SideBar, SideBarContentCont, Col, Row, NavLink } from './Components/Styling/Containers'
 import { Title } from './Components/Styling/Content'
 import { Hamburger, FaceBook, Instagram } from './Components/Logos';
@@ -46,8 +47,8 @@ function App() {
               <NavLink to='/pricing'>Pricing</NavLink>
             </NavMenuCol>
             <LogoRow>
-              <a href='https://www.facebook.com/artbykanieshhh/'target='_blank'><FaceBook /></a>
-              <a href='https://www.instagram.com/artbykanieshhh/'target='_blank'><Instagram /></a>
+              <a href='https://www.facebook.com/artbykanieshhh/' target='_blank'><FaceBook /></a>
+              <a href='https://www.instagram.com/artbykanieshhh/' target='_blank'><Instagram /></a>
             </LogoRow>
           </SideBarContentCont>
         }
@@ -57,6 +58,7 @@ function App() {
         <Route path='/portfolio' component={Portfolio} />
         <Route path='/request' component={Request} />
         <Route path='/pricing' component={Pricing} />
+        <Route component={PageNotFound} />
       </Switch>
     </MainCont>
   );
