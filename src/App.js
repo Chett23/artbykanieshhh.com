@@ -47,8 +47,8 @@ function App() {
               <NavLink to='/pricing'>Pricing</NavLink>
             </NavMenuCol>
             <LogoRow>
-              <a href='https://www.facebook.com/artbykanieshhh/' target='_blank'><FaceBook /></a>
-              <a href='https://www.instagram.com/artbykanieshhh/' target='_blank'><Instagram /></a>
+              <a href='https://www.facebook.com/artbykanieshhh/' target='_blank' rel="noopener noreferrer"><FaceBook /></a>
+              <a href='https://www.instagram.com/artbykanieshhh/' target='_blank' rel="noopener noreferrer"><Instagram /></a>
             </LogoRow>
           </SideBarContentCont>
         }

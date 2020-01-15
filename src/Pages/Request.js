@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-import { Row, Col, MainCol, PictureMainCol, PictureMainRow, TitleRow } from '../Components/Styling/Containers'
+import { MainCol} from '../Components/Styling/Containers'
 import { Title } from '../Components/Styling/Content'
 
 

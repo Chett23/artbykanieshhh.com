@@ -1,14 +1,32 @@
-import React from 'react'
-
-
+import React, { useState, useEffect } from 'react'
 
 
 import { MainCol, PictureMainCol, PictureMainRow, TitleRow, FeedRow, RequestCont } from '../Components/Styling/Containers'
 import { Title } from '../Components/Styling/Content'
 
+import { getIBDData } from '../Data/InstagramBasicDisplayFetch'
+
+
+
 
 
 export default function Main() {
+  const [pictureUrls, setPictureUrls] = useState([]);
+
+
+  const getPictures = () => {
+    getIBDData()
+      .then(data => {
+        setPictureUrls(data)
+        console.log(data)
+        console.log(pictureUrls)
+      })
+  }
+
+  useEffect(() => {
+    getPictures()
+  }, []);
+
   return (
     <MainCol>
       <TitleRow>
