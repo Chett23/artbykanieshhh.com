@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useFetch } from '../Utils/useFetch'
 
 
 import { MainCol, PictureMainCol, PictureMainRow, TitleRow, FeedRow, RequestCont } from '../Components/Styling/Containers'
@@ -12,20 +13,11 @@ import { getIBDData } from '../Data/InstagramBasicDisplayFetch'
 
 export default function Main() {
   const [pictureUrls, setPictureUrls] = useState([]);
-
-
-  const getPictures = () => {
-    getIBDData()
-      .then(data => {
-        setPictureUrls(data)
-        console.log(data)
-        console.log(pictureUrls)
-      })
-  }
+  const { data, loading } = useFetch('https://graph.instagram.com/me/media?fields=id,media_url,caption&access_token=IGQVJVbUxVNVFVdFVqMVhQMlVOZA2l6UEJtanh4M3lxb1NOZAHgtUHlvaTUwYkwweHRnRGdreHR3amZAOblhaY2hNcDBxcXFNakh4bHBXYXIyMlhOMGFzZAWFiSGw0cUQ5S0dSMy1MUkln', {})
 
   useEffect(() => {
-    getPictures()
-  }, []);
+    console.log(data)
+  }, [data]);
 
   return (
     <MainCol>
