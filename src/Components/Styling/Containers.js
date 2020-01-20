@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { ThemeMain, ThemeSub2, ThemeSub, ThemeAccent, ThemeAccent2 } from './Theme'
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export const MainCont = styled.div`
   background-color: ${ThemeMain};
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 `;
 
@@ -28,6 +28,7 @@ export const PictureMainCol = styled(Col)`
   min-width: 33%;
   min-height: 350px;
   align-items: center;
+  margin: 15px;
 `;
 
 export const Row = styled.div`
@@ -61,8 +62,8 @@ export const MenuButtonCont = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  z-index: 10;
+  position: fixed;
+  z-index: 1000;
   cursor: pointer;
   top: 25px;
   left: ${props => props.showSideBar ? '275px' : '25px'};
@@ -72,9 +73,9 @@ export const MenuButtonCont = styled.div`
 `;
 
 export const SideBar = styled.div`
-  position: absolute;
-  z-index: 10;
-  width: ${props => props.showSideBar ? '250px' : '0px'};;
+  position: fixed;
+  z-index: 1000;
+  width: ${props => props.showSideBar ? '250px' : '0px'};
   height: 100vh;
   transition: width: 2s;
   background-color: ${ThemeSub};
@@ -96,4 +97,26 @@ export const NavLink = styled(Link)`
     background-color: ${ThemeAccent};
     border-radius: 5px;
   }
+`;
+
+export const FeedRow = styled.div`
+  width: 80%;
+  max-width: 85%;
+  min-height: 500px;
+  overflow-x: auto;
+  margin: 50px auto;
+  // background-color: ${ThemeSub2}
+  box-shadow: inset 0 0 15px ${ThemeSub}, 0 0 35px ${ThemeSub};
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const RequestCont = styled.div`
+  width: 80%;
+  max-width: 85%;
+  min-height: 500px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
 `;
