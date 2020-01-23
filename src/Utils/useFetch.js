@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 
 export const useFetch = (url, options) => {
   const isCurrent = useRef(true);
-  const [state, setState] = useState({ data: null, loading: true });
+  const [state, setState] = useState({ data: null, loading: true, error: null });
 
   useEffect(() => {
     return () => {
@@ -12,15 +12,15 @@ export const useFetch = (url, options) => {
   }, []);
 
   useEffect(() => {
-    setState(state => ({ data: state.data, loading: true }));
-    fetch(url, { ...options })
+    setState(state => ({ data: state.data, loading: true, error: null }));
+    fetch(url, {...options})
       .then(x => x.json())
       .then(y => {
         if (isCurrent.current) {
-          setState({ data: y, loading: false });
+          setState({ data: y, loading: false, error: null });
         }
       })
-      .catch(err => setState({data: err, loading: false}));
+      .catch(err => setState({ error: err, data: [], loading: false }));
   }, [url, setState, options]);
 
   return state;
