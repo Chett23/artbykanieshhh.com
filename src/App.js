@@ -9,6 +9,7 @@ import Portfolio from "./Pages/Portfolio";
 import Request from "./Pages/Request";
 import Pricing from "./Pages/Pricing";
 import PageNotFound from "./Pages/PageNotFound";
+import UnderConstruction from "./Pages/UnderConstruction";
 
 import {
   MainCont,
@@ -32,7 +33,7 @@ function App() {
   const [showSideBar, setShowSideBar] = useState(false);
   return (
     <MainCont className="main" onClick={() => setShowSideBar(false)}>
-      <MenuButtonCont
+      {/* <MenuButtonCont
         showSideBar={showSideBar}
         onClick={e => {
           e.stopPropagation();
@@ -69,13 +70,13 @@ function App() {
             </LogoRow>
           </SideBarContentCont>
         )}
-      </SideBar>
+      </SideBar> */}
       <Switch>
-        <Route exact path="/" component={Main} />
+        {/* <Route exact path="/" component={Main} />
         <Route path="/portfolio" component={Portfolio} />
         <Route path="/request" component={Request} />
-        <Route path="/pricing" component={Pricing} />
-        <Route component={PageNotFound} />
+        <Route path="/pricing" component={Pricing} /> */}
+        <Route component={UnderConstruction} />
       </Switch>
     </MainCont>
   );
