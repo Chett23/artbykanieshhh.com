@@ -12,7 +12,7 @@ export default function UnderConstruction() {
     <MainCol alignItems="center" justifyContent="space-around">
       <img
         src={logoMain}
-        style={{ marginBottom: "15px" }}
+        style={{ margin: "15px" }}
         alt=""
       />
 
