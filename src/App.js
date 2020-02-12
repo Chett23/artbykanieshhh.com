@@ -9,7 +9,6 @@ import Portfolio from './Pages/Portfolio'
 import Request from './Pages/Request'
 import Pricing from './Pages/Pricing'
 import PageNotFound from './Pages/PageNotFound'
-import UnderConstruction from './Pages/UnderConstruction'
 
 import { MainCont, MenuButtonCont, SideBar, SideBarContentCont, Col, Row, NavLink } from './Components/Styling/Containers'
 import { Title } from './Components/Styling/Content'
@@ -34,7 +33,7 @@ function App() {
   const [showSideBar, setShowSideBar] = useState(false)
   return (
     <MainCont class='main' onClick={() => setShowSideBar(false)}>
-      {/* <MenuButtonCont showSideBar={showSideBar} onClick={(e) => { e.stopPropagation(); setShowSideBar(!showSideBar) }}>
+      <MenuButtonCont showSideBar={showSideBar} onClick={(e) => { e.stopPropagation(); setShowSideBar(!showSideBar) }}>
         <Hamburger />
       </MenuButtonCont>
       <SideBar showSideBar={showSideBar}>
@@ -53,13 +52,13 @@ function App() {
             </LogoRow>
           </SideBarContentCont>
         }
-      </SideBar> */}
+      </SideBar>
       <Switch>
-        {/* <Route exact path='/' component={Main} />
+        <Route exact path='/' component={Main} />
         <Route path='/portfolio' component={Portfolio} />
         <Route path='/request' component={Request} />
-        <Route path='/pricing' component={Pricing} /> */}
-        <Route component={UnderConstruction} />
+        <Route path='/pricing' component={Pricing} />
+        <Route component={PageNotFound} />
       </Switch>
     </MainCont>
   );
