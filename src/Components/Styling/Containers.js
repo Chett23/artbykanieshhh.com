@@ -107,9 +107,9 @@ export const NavLink = styled(Link)`
   margin: 15px 0;
   padding: 10px;
   color: ${ThemeAccent2};
+  border-radius: 5px;
   &:hover {
     background-color: ${ThemeAccent};
-    border-radius: 5px;
   }
 `;
 
@@ -131,5 +131,3 @@ export const RequestCont = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-
