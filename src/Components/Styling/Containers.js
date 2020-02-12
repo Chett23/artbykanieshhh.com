@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import {
   ThemeMain,
   ThemeSub2,
   ThemeSub,
   ThemeAccent,
   ThemeAccent2
-} from './Theme';
-import { Link } from 'react-router-dom';
+} from "./Theme";
+import { Link } from "react-router-dom";
 
 export const MainCont = styled.div`
   background-color: ${ThemeMain};
@@ -17,13 +17,13 @@ export const MainCont = styled.div`
 export const Col = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: ${props => props.justifyContent || 'flex-start'};
-  align-items: ${props => props.alignItems || 'stretch'};
-  max-width: ${props => props.width || '100%'};
-  min-width: ${props => props.width || '100%'};
-  max-height: ${props => props.height || '100%'};
-  min-height: ${props => props.height || '100%'};
-  overflow: ${props => props.overFlow || 'visible'};
+  justify-content: ${props => props.justifyContent || "flex-start"};
+  align-items: ${props => props.alignItems || "stretch"};
+  max-width: ${props => props.width || "100%"};
+  min-width: ${props => props.width || "100%"};
+  max-height: ${props => props.height || "100%"};
+  min-height: ${props => props.height || "100%"};
+  overflow: ${props => props.overFlow || "visible"};
 `;
 
 export const MainCol = styled(Col)`
@@ -42,12 +42,12 @@ export const PictureMainCont = styled(Col)`
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: ${props => props.justifyContent || 'flex-start'};
-  align-items: ${props => props.alignItems || 'stretch'};
-  max-width: ${props => props.width || '100%'};
-  min-width: ${props => props.width || '100%'};
-  max-height: ${props => props.height || '100%'};
-  min-height: ${props => props.height || '100%'};
+  justify-content: ${props => props.justifyContent || "flex-start"};
+  align-items: ${props => props.alignItems || "stretch"};
+  max-width: ${props => props.width || "100%"};
+  min-width: ${props => props.width || "100%"};
+  max-height: ${props => props.height || "100%"};
+  min-height: ${props => props.height || "100%"};
 `;
 
 export const TitleRow = styled(Row)`
@@ -55,6 +55,12 @@ export const TitleRow = styled(Row)`
   align-items: center;
   min-height: 500px;
   margin-bottom: 150px;
+`;
+
+export const LogoRow = styled(Row)`
+  justify-content: space-around;
+  height: auto;
+  padding: 25px 0;
 `;
 
 export const PictureMainRow = styled(Row)`
@@ -74,7 +80,7 @@ export const MenuButtonCont = styled.div`
   z-index: 1000;
   cursor: pointer;
   top: 25px;
-  left: ${props => (props.showSideBar ? '275px' : '25px')};
+  left: ${props => (props.showSideBar ? "275px" : "25px")};
   &:hover {
     background-color: ${ThemeSub}
   }
@@ -83,7 +89,7 @@ export const MenuButtonCont = styled.div`
 export const SideBar = styled.div`
   position: fixed;
   z-index: 1000;
-  width: ${props => (props.showSideBar ? '250px' : '0px')};
+  width: ${props => (props.showSideBar ? "250px" : "0px")};
   height: 100vh;
   transition: width: 2s;
   background-color: ${ThemeSub};
@@ -125,3 +131,5 @@ export const RequestCont = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+
