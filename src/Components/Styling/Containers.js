@@ -29,15 +29,6 @@ export const Col = styled.div`
 export const MainCol = styled(Col)`
   overflow-y: auto;
 `;
-export const PictureMainCont = styled(Col)`
-  min-width: 250px;
-  min-height: 450px;
-  max-height: 450px;
-  max-width: 150px;
-  align-items: center;
-  margin: 15px;
-  background-color: #fff;
-`;
 
 export const Row = styled.div`
   display: flex;
@@ -54,7 +45,7 @@ export const TitleRow = styled(Row)`
   justify-content: center;
   align-items: center;
   min-height: 500px;
-  margin-bottom: 150px;
+  margin: 35px auto;
 `;
 
 export const LogoRow = styled(Row)`
@@ -63,8 +54,18 @@ export const LogoRow = styled(Row)`
   padding: 25px 0;
 `;
 
-export const PictureMainRow = styled(Row)`
+export const FavoritePostsRow = styled.div`
+  display: flex;
+  max-width: 80%;
+  place-self: center;
   justify-content: space-around;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 625px) {
+    max-width: 75%;
+    min-width: 75%;
+    margin: 0;
+  }
 `;
 
 export const MenuButtonCont = styled.div`

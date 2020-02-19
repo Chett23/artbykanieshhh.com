@@ -5,7 +5,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-document.title='Art by Kanieshhh'
 
 ReactDOM.render(
   <Router>

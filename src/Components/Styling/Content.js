@@ -13,3 +13,15 @@ export const Text = styled.p`
   color: ${props => props.color || ThemeSub2};
   font-size: 1em;
 `;
+
+export const MainLogo = styled.img`
+  min-width: ${props => props.width || "400px"}
+  max-width: ${props => props.width || "500px"}
+  margin: ${props => props.margin || "25px"};
+  
+  @media screen and (max-width: 625px) {
+    max-width: 75%;
+    min-width: 75%;
+    margin: 0;
+  }
+`;
