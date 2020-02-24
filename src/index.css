@@ -12,3 +12,6 @@ code {
     monospace;
 }
 
+input[type=date] {
+  color: #6B7D7D;
+}

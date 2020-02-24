@@ -47,6 +47,6 @@ export const TextAreaField = styled.textarea`
   margin: 5px;
   width: calc(100%-30px);
   height: 155px;
-  padding: 5px 10px;
+  padding: 10px;
   resize: none;
 `;
