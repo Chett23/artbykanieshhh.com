@@ -55,14 +55,14 @@ function App() {
               <a
                 href="https://www.facebook.com/artbykanieshhh/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="@artbykanieshhh on facebook"
               >
                 <FaceBook />
               </a>
               <a
                 href="https://www.instagram.com/artbykanieshhh/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="@artbykanieshhh on instagram"
               >
                 <Instagram />
               </a>

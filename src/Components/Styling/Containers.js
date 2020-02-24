@@ -131,7 +131,7 @@ export const FeedRow = styled.div`
 	flex-direction: row;
 `;
 
-export const RequestCont = styled.div`
+export const RequestCont = styled.form`
 	width: 70%;
 	max-width: 85%;
 	min-height: 500px;
