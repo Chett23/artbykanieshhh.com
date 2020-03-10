@@ -7,9 +7,10 @@ import {
 	MainCol,
 	FavoritePostsRow,
 	TitleRow,
-	RequestCont
+	LogoRow
 } from "../Components/Styling/Containers";
-import { MainLogo } from "../Components/Styling/Content";
+import { FaceBook, Instagram } from "../Components/Logos";
+import { MainLogo, LogoButton } from "../Components/Styling/Content";
 import logoMain from "../Resourses/logo_main.png";
 
 export default function Main() {
@@ -38,16 +39,33 @@ export default function Main() {
 			<TitleRow>
 				<MainLogo src={logoMain} alt="" />
 			</TitleRow>
-			{/* <FavoritePostsRow>
+			<FavoritePostsRow>
 				{favorites.map(fav => (
 					<InstagramEmbed
+						key={fav.id}
 						style={{ padding: "15px" }}
 						url={fav.permalink}
 						maxWidth={400}
 					/>
 				))}
-			</FavoritePostsRow> */}
+			</FavoritePostsRow>
 			<RequestForm />
+			<LogoRow>
+				<LogoButton
+					href="https://www.facebook.com/artbykanieshhh/"
+					target="_blank"
+					rel="@artbykanieshhh on facebook"
+				>
+					<FaceBook />
+				</LogoButton>
+				<LogoButton
+					href="https://www.instagram.com/artbykanieshhh/"
+					target="_blank"
+					rel="@artbykanieshhh on instagram"
+				>
+					<Instagram />
+				</LogoButton>
+			</LogoRow>
 		</MainCol>
 	);
 }

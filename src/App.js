@@ -19,6 +19,7 @@ import {
   LogoRow,
   NavLink
 } from "./Components/Styling/Containers";
+import { LogoButton } from "./Components/Styling/Content";
 import { Hamburger, FaceBook, Instagram } from "./Components/Logos";
 import logoMain from "./Resourses/logo_main.png";
 
@@ -52,20 +53,20 @@ function App() {
               <NavLink to="/pricing">Pricing</NavLink>
             </NavMenuCol>
             <LogoRow>
-              <a
+              <LogoButton
                 href="https://www.facebook.com/artbykanieshhh/"
                 target="_blank"
                 rel="@artbykanieshhh on facebook"
               >
                 <FaceBook />
-              </a>
-              <a
+              </LogoButton>
+              <LogoButton
                 href="https://www.instagram.com/artbykanieshhh/"
                 target="_blank"
                 rel="@artbykanieshhh on instagram"
               >
                 <Instagram />
-              </a>
+              </LogoButton>
             </LogoRow>
           </SideBarContentCont>
         )}

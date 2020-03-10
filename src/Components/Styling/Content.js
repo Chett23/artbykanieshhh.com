@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { ThemeSub2 } from "./Theme";
+import DatePicker from "react-datepicker";
+import { ThemeSub2, ThemeSub, ThemeAccent } from "./Theme";
 
 export const Title = styled.h1`
   font-size: ${props => props.size || "2em"}
@@ -29,12 +30,23 @@ export const MainLogo = styled.img`
 export const Label = styled.span`
 	font-weight: bold;
 	font-size: 1em;
-  margin: 5px;
-  color: ${ThemeSub2}
+	margin: 5px;
+	color: ${ThemeSub2};
 `;
 
 export const InputField = styled.input`
 	height: 30px;
+	border-radius: 3px;
+	border: none;
+	margin: 5px;
+	padding: 5px 10px;
+	border: 1px solid ${ThemeAccent};
+`;
+
+export const DatePickerField = styled(DatePicker)`
+	height: 30px;
+	width: 95%;
+	max-width: 95%;
 	border-radius: 3px;
 	border: none;
 	margin: 5px;
@@ -44,9 +56,36 @@ export const InputField = styled.input`
 export const TextAreaField = styled.textarea`
 	border-radius: 3px;
 	border: none;
-  margin: 5px;
-  width: calc(100%-30px);
-  height: 155px;
-  padding: 10px;
-  resize: none;
+	margin: 5px;
+	width: calc(100%-30px);
+	height: 155px;
+	padding: 10px;
+	resize: none;
+`;
+
+export const SizeMenu = styled.ul`
+	background-color: #ffffff;
+	color: ${ThemeSub2};
+	width: 31%;
+	margin: 0 auto;
+  border: 1px solid ${ThemeAccent}
+  border-radius: 3px;
+  padding: 0;
+  position: absolute;
+  z-index: 100;
+  top: 97%;
+`;
+
+export const SizeMenuItem = styled.li`
+	list-style: none;
+	padding: 10px 20px;
+	font-weight: bold;
+	font-size: 0.75em;
+	&:hover {
+		background-color: ${ThemeSub};
+	}
+`;
+
+export const LogoButton = styled.a`
+  margin: 15px;
 `;

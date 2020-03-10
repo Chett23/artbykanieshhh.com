@@ -56,7 +56,7 @@ export const TitleRow = styled(Row)`
 `;
 
 export const LogoRow = styled(Row)`
-	justify-content: space-around;
+	justify-content: center;
 	height: auto;
 	padding: 25px 0;
 `;
@@ -138,4 +138,11 @@ export const RequestCont = styled.form`
 	margin: 50px auto;
 	display: flex;
 	flex-direction: column;
+`;
+
+export const PortfolioCont = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	justify-content: center;
 `;
