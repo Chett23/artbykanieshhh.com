@@ -52,16 +52,18 @@ export default function Main() {
 			<RequestForm />
 			<LogoRow>
 				<LogoButton
+					rel="noopener"
 					href="https://www.facebook.com/artbykanieshhh/"
 					target="_blank"
-					rel="@artbykanieshhh on facebook"
+					title="@artbykanieshhh on facebook"
 				>
 					<FaceBook />
 				</LogoButton>
 				<LogoButton
+					rel="noopener"
 					href="https://www.instagram.com/artbykanieshhh/"
 					target="_blank"
-					rel="@artbykanieshhh on instagram"
+					title="@artbykanieshhh on instagram"
 				>
 					<Instagram />
 				</LogoButton>
