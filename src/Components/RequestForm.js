@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FileDrop from "./FileDrop";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -106,6 +107,10 @@ export default function RequestForm() {
 						placeholder="Please tell us more . . ."
 					/>
 				</InputCol>
+			</Row>
+			<Row>
+				<Label>Upload a Picture</Label>
+				<FileDrop onFilesAdded={console.log} />
 			</Row>
 			<Row justifyContent={"center"}>
 				<InputCol width={"95%"}>

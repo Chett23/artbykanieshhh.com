@@ -43,16 +43,18 @@ export default function Portfolio() {
 			</PortfolioCont>
 			<LogoRow>
 				<LogoButton
+					rel="noopener"
 					href="https://www.facebook.com/artbykanieshhh/"
 					target="_blank"
-					rel="@artbykanieshhh on facebook"
+					title="@artbykanieshhh on facebook"
 				>
 					<FaceBook />
 				</LogoButton>
 				<LogoButton
 					href="https://www.instagram.com/artbykanieshhh/"
 					target="_blank"
-					rel="@artbykanieshhh on instagram"
+					rel="noopener"
+					title="@artbykanieshhh on instagram"
 				>
 					<Instagram />
 				</LogoButton>
