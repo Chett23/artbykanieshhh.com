@@ -39,7 +39,7 @@ export default function Main() {
 			<TitleRow>
 				<MainLogo src={logoMain} alt="" />
 			</TitleRow>
-			<FavoritePostsRow>
+			{/* <FavoritePostsRow>
 				{favorites.map(fav => (
 					<InstagramEmbed
 						key={fav.id}
@@ -48,7 +48,7 @@ export default function Main() {
 						maxWidth={400}
 					/>
 				))}
-			</FavoritePostsRow>
+			</FavoritePostsRow> */}
 			<RequestForm />
 			<LogoRow>
 				<LogoButton
