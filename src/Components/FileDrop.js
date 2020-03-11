@@ -1,47 +1,43 @@
-import React, { useRef } from "react";
+import React, { useCallback } from "react";
+import { CloudUpload } from "./Logos";
+import { useDropzone } from "react-dropzone";
 
-import { CloudUpload } from "../Components/Logos";
+const App = ({ onFilesAdded }) => {
+	const maxSize = 1048576;
 
-export default function FileDrop(props) {
-	const fileInputRef = useRef();
+	const onDrop = useCallback(acceptedFiles => {
+		onFilesAdded(acceptedFiles);
+	}, []);
 
-	const onFilesAdded = evt => {
-		if (props.disabled) return;
-		const files = evt.target.files;
-		if (props.onFilesAdded) {
-			const array = fileListToArray(files);
-			props.onFilesAdded(array);
-		}
-	};
+	const {
+		isDragActive,
+		getRootProps,
+		getInputProps,
+		isDragReject,
+		acceptedFiles,
+		rejectedFiles
+	} = useDropzone({
+		onDrop,
+		accept: ["image/png", "image/jpg", "image/jpeg", "image/heic"],
+		minSize: 0,
+		maxSize
+	});
 
-	const fileListToArray = list => {
-		const array = [];
-		for (var i = 0; i < list.length; i++) {
-			array.push(list.item(i));
-		}
-		return array;
-	};
-
-	const openFileDialog = () => {
-		if (props.disabled) return;
-		fileInputRef.current.click();
-	};
+	const isFileTooLarge =
+		rejectedFiles.length > 0 && rejectedFiles[0].size > maxSize;
 
 	return (
-		<div
-			className="Dropzone"
-			onClick={openFileDialog}
-			style={{ cursor: props.disabled ? "default" : "pointer" }}
-		>
+		<div {...getRootProps()} className="Dropzone">
 			<CloudUpload />
-			<input
-				ref={fileInputRef}
-				className="FileInput"
-				type="file"
-				multiple
-				onChange={onFilesAdded}
-			/>
-			<span>Upload Files</span>
+			<input {...getInputProps()} />
+			{!isDragActive && "Click here or drop a file to upload"}
+			{isDragActive && !isDragReject && "Drop it like it's hot!"}
+			{isDragReject && "File type not accepted, sorry!"}
+			{isFileTooLarge && (
+				<div className="text-danger mt-2">File is too large.</div>
+			)}
 		</div>
 	);
-}
+};
+
+export default App;
