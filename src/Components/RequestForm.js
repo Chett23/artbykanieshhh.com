@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import FileDrop from "./FileDrop";
+import DropZone from "./DropZone";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -17,34 +18,39 @@ import {
 export default function RequestForm() {
 	const twoWeekMin = new Date(Date.now() + 12096e5); //new date 14 days from current date
 	// const twoWeekMin = new Date(Date.now() + 12096e5).toISOString().split("T")[0]; //new date 14 days from current date
-	const formData = useRef({});
+	// const formData = useRef({});
+	const formData = new FormData();
 	const [showSizeMenu, setShowSizeMenu] = useState(false);
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		console.log(formData.current);
 		fetch("http://localhost:8000/upload", {
 			method: "POST",
-			body: JSON.stringify(formData.current),
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json"
-			}
+			body: formData
 		})
 			.then(data => data.json())
 			.then(success => console.log(success));
 	};
 
 	const handleChange = target => {
-		formData.current = { ...formData.current, [target.name]: target.value };
+		console.log(target);
+		if (formData.get(target.name)) {
+			console.log(formData.get(target.name));
+			formData.set(target.name, target.value);
+		} else {
+			formData.append(target.name, target.value);
+		}
 	};
 
-	const handleFileAdded = file => {
-		let files = formData.current.files || [];
-		files.push(file);
-		console.log(file);
-		console.log(formData.current);
-		formData.current = { ...formData.current, files };
+	const handleFileAdded = e => {
+		let file = e.target.files[0];
+		FormData.append("file", file);
+		// let files = formData.current.files || [];
+		// files.push(file);
+		// console.log(files);
+		// formData.current = { ...formData.current, files };
+		// console.log(formData.current);
+		// formData.current = { ...formData.current, files };
 	};
 
 	return (
@@ -60,7 +66,7 @@ export default function RequestForm() {
 						type="text"
 						name="name"
 						placeholder="Name"
-						value={formData.current.name}
+						value={formData.get("name")}
 						onChange={e => handleChange(e.target)}
 					/>
 				</InputCol>
@@ -70,7 +76,7 @@ export default function RequestForm() {
 						type="email"
 						name="email"
 						placeholder="Email"
-						value={formData.current.email}
+						value={formData.get("email")}
 						onChange={e => handleChange(e.target)}
 					/>
 				</InputCol>
@@ -81,8 +87,7 @@ export default function RequestForm() {
 					<InputField
 						name="size"
 						placeholder="Size"
-						value={formData.size}
-						value={formData.current.size}
+						value={formData.get("size")}
 						onClick={e => {
 							e.stopPropagation();
 							setShowSizeMenu(!showSizeMenu);
@@ -91,23 +96,17 @@ export default function RequestForm() {
 					{showSizeMenu && (
 						<SizeMenu>
 							<SizeMenuItem
-								onClick={() =>
-									(formData.current = { ...formData, size: "5 X 7" })
-								}
+								onClick={() => handleChange({ name: "size", value: "5 X 7" })}
 							>
 								5 X 7
 							</SizeMenuItem>
 							<SizeMenuItem
-								onClick={() =>
-									(formData.current = { ...formData, size: "8 X 10" })
-								}
+								onClick={() => handleChange({ name: "size", value: "8 X 10" })}
 							>
 								8 X 10
 							</SizeMenuItem>
 							<SizeMenuItem
-								onClick={() =>
-									(formData.current = { ...formData, size: "9 X 12" })
-								}
+								onClick={() => handleChange({ name: "size", value: "9 X 12" })}
 							>
 								9 X 12
 							</SizeMenuItem>
@@ -121,8 +120,8 @@ export default function RequestForm() {
 						name="date"
 						minDate={twoWeekMin}
 						placeholderText="Click to select a date"
-						selected={formData.current.date}
 						calendarClassName="calendarClass"
+						selected={formData.get("date")}
 						onChange={date => handleChange({ name: "date", value: date })}
 					/>
 				</InputCol>
@@ -132,7 +131,7 @@ export default function RequestForm() {
 					<Label>Description</Label>
 					<TextAreaField
 						name="description"
-						value={formData.current.name}
+						value={formData.get("description")}
 						placeholder="Please tell us more . . ."
 					/>
 				</InputCol>
@@ -140,7 +139,8 @@ export default function RequestForm() {
 			<Row justifyContent={"space-around"}>
 				<InputCol width={"95%"}>
 					<Label>Upload a Picture</Label>
-					<FileDrop onFilesAdded={data => handleFileAdded(data)} />
+					<DropZone onChange={e => handleFileAdded(e)} />
+					{/* <FileDrop onFilesAdded={data => handleFileAdded(data)} /> */}
 				</InputCol>
 			</Row>
 			<Row justifyContent={"center"}>

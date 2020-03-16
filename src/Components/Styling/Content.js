@@ -66,14 +66,14 @@ export const TextAreaField = styled.textarea`
 export const SizeMenu = styled.ul`
 	background-color: #ffffff;
 	color: ${ThemeSub2};
-	width: 31%;
+	width: 30%;
 	margin: 0 auto;
   border: 1px solid ${ThemeAccent}
   border-radius: 3px;
   padding: 0;
   position: absolute;
   z-index: 100;
-  top: 97%;
+  top: 95%;
 `;
 
 export const SizeMenuItem = styled.li`
@@ -87,5 +87,5 @@ export const SizeMenuItem = styled.li`
 `;
 
 export const LogoButton = styled.a`
-  margin: 15px;
+	margin: 15px;
 `;

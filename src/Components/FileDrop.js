@@ -2,11 +2,11 @@ import React, { useCallback } from "react";
 import { CloudUpload } from "./Logos";
 import { useDropzone } from "react-dropzone";
 
-const App = ({ onFilesAdded }) => {
+const FileDrop = ({ onFilesAdded }) => {
 	const maxSize = 1048576;
 
-	const onDrop = useCallback(acceptedFiles => {
-		onFilesAdded(acceptedFiles);
+	const onDrop = useCallback(file => {
+		onFilesAdded(file);
 	}, []);
 
 	const {
@@ -40,4 +40,4 @@ const App = ({ onFilesAdded }) => {
 	);
 };
 
-export default App;
+export default FileDrop;
