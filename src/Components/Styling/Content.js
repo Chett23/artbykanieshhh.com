@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import DatePicker from "react-datepicker";
-import { ThemeSub2, ThemeSub, ThemeAccent } from "./Theme";
+import { ThemeSub2, ThemeSub, ThemeAccent, ThemeAccent2 } from "./Theme";
 
 export const Title = styled.h1`
   font-size: ${props => props.size || "2em"}
@@ -13,6 +13,12 @@ export const Title = styled.h1`
 export const Text = styled.p`
 	color: ${props => props.color || ThemeSub2};
 	font-size: 1em;
+`;
+
+export const FileNameText = styled.p`
+	color: ${props => props.color || ThemeSub2};
+	font-size: 0.5em;
+	margin: 1px;
 `;
 
 export const MainLogo = styled.img`
@@ -39,7 +45,25 @@ export const InputField = styled.input`
 	border-radius: 3px;
 	border: none;
 	margin: 5px;
+	color: ${ThemeSub2};
 	padding: 5px 10px;
+	border: 1px solid ${ThemeAccent};
+`;
+export const DropDownFieldDiv = styled.div`
+	height: 30px;
+	min-height: 30px;
+	max-height: 30px;
+	border-radius: 3px;
+	border: none;
+	margin: 5px;
+	padding: 5px 10px;
+	background-color: #fff;
+	color: ${ThemeSub2};
+	font-size: 0.75em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	cursor: pointer;
 	border: 1px solid ${ThemeAccent};
 `;
 
@@ -51,6 +75,7 @@ export const DatePickerField = styled(DatePicker)`
 	border: none;
 	margin: 5px;
 	padding: 5px 10px;
+	color: ${ThemeSub2}
 `;
 
 export const TextAreaField = styled.textarea`
@@ -66,14 +91,13 @@ export const TextAreaField = styled.textarea`
 export const SizeMenu = styled.ul`
 	background-color: #ffffff;
 	color: ${ThemeSub2};
-	width: 30%;
+	width: ${props => props.width + "px"};
 	margin: 0 auto;
   border: 1px solid ${ThemeAccent}
-  border-radius: 3px;
-  padding: 0;
-  position: absolute;
-  z-index: 100;
-  top: 95%;
+	border-radius: 3px;
+	padding: 0;
+	z-index: 100;
+	box-shadow 7px 7px 20px ${ThemeSub2};
 `;
 
 export const SizeMenuItem = styled.li`

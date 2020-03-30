@@ -1,20 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { CloudUpload } from "./Logos";
+import { Label, FileNameText } from "./Styling/Content";
 
 export default function DropZone({ onChange }) {
+	const [fileNames, setFileNames] = useState([]);
 	const fileInput = useRef();
-	// const onChangeHandler = event => {
-	// 	const data = new FormData();
-	// 	data.append("file", event.target.files[0]);
-	// 	console.log(data);
-	// 	fetch("http://localhost:8000/upload", {
-	// 		method: "POST",
-	// 		body: data
-	// 	}).then(res => {
-	// 		// then print response status
-	// 		// console.log(res.statusText);
-	// 	});
-	// };
+
+	const onChangeHandler = event => {
+		let names = [...event.target.files].map(file => file.name);
+		setFileNames([...fileNames, ...names]);
+		onChange(event);
+	};
 
 	const openFileInput = () => {
 		fileInput.current.click();
@@ -22,6 +18,7 @@ export default function DropZone({ onChange }) {
 
 	return (
 		<div className="Dropzone" onClick={() => openFileInput()}>
+			<Label>Click to upload your picture.</Label>
 			<CloudUpload />
 			<input
 				ref={fileInput}
@@ -29,8 +26,11 @@ export default function DropZone({ onChange }) {
 				name="file"
 				className="FileInput"
 				multiple
-				onChange={event => onChange(event)}
+				onChange={event => onChangeHandler(event)}
 			/>
+			{fileNames.map(fileName => (
+				<FileNameText key={fileName}>{fileName}</FileNameText>
+			))}
 		</div>
 	);
 }

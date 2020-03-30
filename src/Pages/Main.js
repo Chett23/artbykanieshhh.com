@@ -10,19 +10,19 @@ import {
 	LogoRow
 } from "../Components/Styling/Containers";
 import { FaceBook, Instagram } from "../Components/Logos";
-import { MainLogo, LogoButton } from "../Components/Styling/Content";
+import { MainLogo, LogoButton, Text } from "../Components/Styling/Content";
 import logoMain from "../Resourses/logo_main.png";
 
 export default function Main() {
 	const [postData, setPostData] = useState([]);
 	const [favorites, setFavorites] = useState([]);
 	const { data, loading, error } = useFetch(
-		process.env.REACT_APP_MAIN_FETCH_URL
+		// process.env.REACT_APP_Instagram_me_node
 	);
 
 	useEffect(() => {
 		let tempFavs;
-		if (!loading && !error && !data.error) {
+		if (!loading && !error && data && !data.error) {
 			tempFavs = data.filter(
 				post =>
 					post.id === "17900327341417651" ||
@@ -39,16 +39,20 @@ export default function Main() {
 			<TitleRow>
 				<MainLogo src={logoMain} alt="" />
 			</TitleRow>
-			{/* <FavoritePostsRow>
-				{favorites.map(fav => (
-					<InstagramEmbed
-						key={fav.id}
-						style={{ padding: "15px" }}
-						url={fav.permalink}
-						maxWidth={400}
-					/>
-				))}
-			</FavoritePostsRow> */}
+			<FavoritePostsRow>
+				{loading ? (
+					<Text>Loading . . .</Text>
+				) : (
+					favorites.map(fav => (
+						<InstagramEmbed
+							key={fav.id}
+							style={{ padding: "15px" }}
+							url={fav.permalink}
+							maxWidth={400}
+						/>
+					))
+				)}
+			</FavoritePostsRow>
 			<RequestForm />
 			<LogoRow>
 				<LogoButton
