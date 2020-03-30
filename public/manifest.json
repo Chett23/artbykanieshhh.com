@@ -8,7 +8,7 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "logo_main_192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
@@ -21,5 +21,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#F6B9B9"
 }

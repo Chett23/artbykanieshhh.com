@@ -29,7 +29,9 @@ export const Col = styled.div`
 export const InputCol = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: ${props => props.width || '45%'};
+	width: ${props => props.width || "45%"};
+	max-height: "40px";
+	overflow-y: visible;
 	margin: 10px;
 `;
 
