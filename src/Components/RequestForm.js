@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-// import FileDrop from "./FileDrop";
+import SmtpService from "../Utils/smtpService";
 import DropZone from "./DropZone";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -13,7 +13,7 @@ import {
 	DatePickerField,
 	SizeMenu,
 	SizeMenuItem,
-	DropDownFieldDiv
+	DropDownFieldDiv,
 } from "./Styling/Content";
 
 export default function RequestForm() {
@@ -24,17 +24,31 @@ export default function RequestForm() {
 	const [selectedDate, setSelectedDate] = useState(undefined);
 	const sizeRef = useRef({});
 
-	const handleSubmit = e => {
+	const handleSubmit = (e) => {
+		//
+		// On submit post to trello api to create new card
+		// Display success notification.
+		//
 		e.preventDefault();
+		let sender = new SmtpService();
+		sender
+			.send({
+				SecureToke: "a148a583-6250-4d28-97b6-3cd6ee1155b6",
+				To: "chedder23@gmail.com",
+				From: "chesterehansen@gmail.com",
+				Subject: "This is the subject",
+				Body: "And this is the body",
+			})
+			.then((message) => alert(message));
 		fetch(process.env.REACT_APP_server_DEV, {
 			method: "POST",
-			body: formData
+			body: formData,
 		})
-			.then(data => data.json())
-			.then(success => console.log(success));
+			.then((data) => data.json())
+			.then((success) => console.log(success));
 	};
 
-	const handleChange = target => {
+	const handleChange = (target) => {
 		if (formData.get(target.name)) {
 			formData.set(target.name, target.value);
 		} else {
@@ -42,27 +56,21 @@ export default function RequestForm() {
 		}
 	};
 
-	const handleFileAdded = e => {
-		let file = e.target.files[0];
-		console.log(e.target.files);
-		formData.append("file", file);
-		fetch(process.env.REACT_APP_server_DEV, {
-			method: "POST",
-			body: formData
-		})
-			.then(data => data.json())
-			.then(success => console.log(success));
-		// let files = formData.current.files || [];
-		// files.push(file);
-		// console.log(files);
-		// formData.current = { ...formData.current, files };
-		// console.log(formData.current);
-		// formData.current = { ...formData.current, files };
+	const handleFileAdded = (e) => {
+		for (let file in e.target.files) {
+			formData.append("file", file);
+		}
+		// fetch(process.env.REACT_APP_server_DEV, {
+		// 	method: "POST",
+		// 	body: formData,
+		// })
+		// 	.then((data) => data.json())
+		// 	.then((success) => console.log(success));
 	};
 
 	return (
 		<RequestCont
-			onSubmit={e => handleSubmit(e)}
+			onSubmit={(e) => handleSubmit(e)}
 			onClick={() => setShowSizeMenu(false)}
 		>
 			<Title>Contact us</Title>
@@ -83,7 +91,7 @@ export default function RequestForm() {
 						name="size"
 						ref={sizeRef}
 						placeholder="Size"
-						onClick={e => {
+						onClick={(e) => {
 							e.stopPropagation();
 							setShowSizeMenu(!showSizeMenu);
 						}}
@@ -106,14 +114,13 @@ export default function RequestForm() {
 				</InputCol>
 				<InputCol>
 					<Label>Date needed</Label>
-					{/* <InputField name="date" type="date" minDate={twoWeekMin} /> */}
 					<DatePickerField
 						name="date"
 						minDate={twoWeekMin}
 						placeholderText="Click to select a date"
 						calendarClassName="calendarClass"
 						selected={selectedDate}
-						onChange={date => setSelectedDate(date)}
+						onChange={(date) => setSelectedDate(date)}
 					/>
 				</InputCol>
 			</Row>
@@ -128,7 +135,7 @@ export default function RequestForm() {
 			</Row>
 			<Row justifyContent={"space-around"}>
 				<InputCol width={"95%"}>
-					<DropZone onChange={e => handleFileAdded(e)} />
+					<DropZone onChange={(e) => handleFileAdded(e)} />
 				</InputCol>
 			</Row>
 			<Row justifyContent={"center"}>

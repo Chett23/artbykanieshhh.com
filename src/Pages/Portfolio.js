@@ -6,7 +6,7 @@ import {
 	MainCol,
 	PortfolioCont,
 	TitleRow,
-	LogoRow
+	LogoRow,
 } from "../Components/Styling/Containers";
 import { Title, MainLogo, LogoButton } from "../Components/Styling/Content";
 import { FaceBook, Instagram } from "../Components/Logos";
@@ -15,11 +15,12 @@ import { useFetch } from "../Utils/useFetch";
 export default function Portfolio() {
 	const [postData, setPostData] = useState();
 	const { data, loading, error } = useFetch(
-		process.env.REACT_APP_MAIN_FETCH_URL
+		process.env.REACT_APP_Instagram_me_node
 	);
 
 	useEffect(() => {
-		if (!loading && !error && !data.error) {
+		console.log(data);
+		if (!loading && !error && data && !data.error) {
 			setPostData(data);
 		}
 	}, [data, loading, error, postData]);
@@ -32,7 +33,7 @@ export default function Portfolio() {
 			<Title>Portfolio</Title>
 			<PortfolioCont>
 				{postData &&
-					postData.map(post => (
+					postData.map((post) => (
 						<InstagramEmbed
 							key={post.id}
 							style={{ padding: "15px" }}
