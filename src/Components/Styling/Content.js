@@ -17,7 +17,8 @@ export const Text = styled.p`
 
 export const FileNameText = styled.p`
 	color: ${props => props.color || ThemeSub2};
-	font-size: 0.5em;
+	font-size: 0.75em;
+	font-weight: bold;
 	margin: 1px;
 `;
 
