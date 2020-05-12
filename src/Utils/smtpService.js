@@ -9,7 +9,7 @@ class SmtpService extends Component {
 			t
 		)}&amp;Body=${encodeURIComponent(n)}`;
 
-		if (a && !a.token) {
+		if (!a.token) {
 			i += `&amp;Host=${a}&amp;Username=${s}&amp;Password=${r}&amp;Action=Send`;
 		} else {
 			i += `&amp;SecureToken=${a.token}&amp;Action=SendFromStored`;
@@ -59,8 +59,8 @@ class SmtpService extends Component {
 		return (
 			"withCredentials" in t
 				? t.open(e, o, !0)
-				: "undefined" !== typeof t
-				? (t = new t()).open(e, o)
+				: "undefined" !== typeof XDomainRequest
+				? (t = new XDomainRequest()).open(e, o)
 				: (t = null),
 			t
 		);
