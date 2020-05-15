@@ -7,7 +7,7 @@ import {
 	MainCol,
 	FavoritePostsRow,
 	TitleRow,
-	LogoRow
+	LogoRow,
 } from "../Components/Styling/Containers";
 import { FaceBook, Instagram } from "../Components/Logos";
 import { MainLogo, LogoButton, Text } from "../Components/Styling/Content";
@@ -17,14 +17,14 @@ export default function Main() {
 	const [postData, setPostData] = useState([]);
 	const [favorites, setFavorites] = useState([]);
 	const { data, loading, error } = useFetch(
-		// process.env.REACT_APP_Instagram_me_node
+		process.env.REACT_APP_Instagram_me_node
 	);
 
 	useEffect(() => {
 		let tempFavs;
 		if (!loading && !error && data && !data.error) {
 			tempFavs = data.filter(
-				post =>
+				(post) =>
 					post.id === "17900327341417651" ||
 					post.id === "17862358330647480" ||
 					post.id === "17842116844910981"
@@ -43,7 +43,7 @@ export default function Main() {
 				{loading ? (
 					<Text>Loading . . .</Text>
 				) : (
-					favorites.map(fav => (
+					favorites.map((fav) => (
 						<InstagramEmbed
 							key={fav.id}
 							style={{ padding: "15px" }}
