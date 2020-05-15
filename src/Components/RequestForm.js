@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import SmtpService from "../Utils/smtpService";
+// import SmtpService from "../Utils/smtpService";
 import DropZone from "./DropZone";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -30,16 +30,16 @@ export default function RequestForm() {
 		// Display success notification.
 		//
 		e.preventDefault();
-		let sender = new SmtpService();
-		sender
-			.send({
-				SecureToke: "a148a583-6250-4d28-97b6-3cd6ee1155b6",
-				To: "chedder23@gmail.com",
-				From: "chesterehansen@gmail.com",
-				Subject: "This is the subject",
-				Body: "And this is the body",
-			})
-			.then((message) => alert(message));
+		// let sender = new SmtpService();
+		// sender
+		// 	.send({
+		// 		SecureToke: "a148a583-6250-4d28-97b6-3cd6ee1155b6",
+		// 		To: "chedder23@gmail.com",
+		// 		From: "chesterehansen@gmail.com",
+		// 		Subject: "This is the subject",
+		// 		Body: "And this is the body",
+		// 	})
+		// 	.then((message) => alert(message));
 		fetch(process.env.REACT_APP_server_DEV, {
 			method: "POST",
 			body: formData,
