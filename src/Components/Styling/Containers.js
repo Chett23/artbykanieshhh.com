@@ -142,9 +142,25 @@ export const RequestCont = styled.form`
 	flex-direction: column;
 `;
 
+export const SuccessfulReq = styled.div`
+	width: 70%;
+	max-width: 85%;
+	min-height: 500px;
+	margin: 50px auto;
+	display: flex;
+	flex-direction: column;
+`;
+
 export const PortfolioCont = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 auto;
 	justify-content: center;
+`;
+
+export const LoadingCont = styled.div`
+	background-color: rgba(10,10,10,50);
+	z-index: 1000;
+	width: 100vw;
+	height: 100vh;
 `;
