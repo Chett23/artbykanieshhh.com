@@ -9,7 +9,7 @@ import RequestForm from "../Components/RequestForm";
 
 export default function Portfolio() {
 	return (
-		<MainCol alignItems="center" justifyContent="space-around">
+		<MainCol>
 			<TitleRow>
 				<MainLogo src={logoMain} alt="" />
 			</TitleRow>
