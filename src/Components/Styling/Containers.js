@@ -4,7 +4,7 @@ import {
 	ThemeSub2,
 	ThemeSub,
 	ThemeAccent,
-	ThemeAccent2
+	ThemeAccent2,
 } from "./Theme";
 import { Link } from "react-router-dom";
 
@@ -17,19 +17,19 @@ export const MainCont = styled.div`
 export const Col = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-content: ${props => props.justifyContent || "flex-start"};
-	align-items: ${props => props.alignItems || "stretch"};
-	max-width: ${props => props.width || "100%"};
-	min-width: ${props => props.width || "100%"};
-	max-height: ${props => props.height || "100%"};
-	min-height: ${props => props.height || "100%"};
-	overflow: ${props => props.overFlow || "visible"};
+	justify-content: ${(props) => props.justifyContent || "flex-start"};
+	align-items: ${(props) => props.alignItems || "stretch"};
+	max-width: ${(props) => props.width || "100%"};
+	min-width: ${(props) => props.width || "100%"};
+	max-height: ${(props) => props.height || "100%"};
+	min-height: ${(props) => props.height || "100%"};
+	overflow: ${(props) => props.overFlow || "visible"};
 `;
 
 export const InputCol = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: ${props => props.width || "45%"};
+	width: ${(props) => props.width || "45%"};
 	max-height: "40px";
 	overflow-y: visible;
 	margin: 10px;
@@ -42,12 +42,12 @@ export const MainCol = styled(Col)`
 export const Row = styled.div`
 	display: flex;
 	flex-direction: row;
-	justify-content: ${props => props.justifyContent || "flex-start"};
-	align-items: ${props => props.alignItems || "stretch"};
-	max-width: ${props => props.width || "100%"};
-	min-width: ${props => props.width || "100%"};
-	max-height: ${props => props.height || "100%"};
-	min-height: ${props => props.height || "100%"};
+	justify-content: ${(props) => props.justifyContent || "flex-start"};
+	align-items: ${(props) => props.alignItems || "stretch"};
+	max-width: ${(props) => props.width || "100%"};
+	min-width: ${(props) => props.width || "100%"};
+	max-height: ${(props) => props.height || "100%"};
+	min-height: ${(props) => props.height || "100%"};
 `;
 
 export const TitleRow = styled(Row)`
@@ -90,7 +90,7 @@ export const MenuButtonCont = styled.form`
   z-index: 1000;
   cursor: pointer;
   top: 25px;
-  left: ${props => (props.showSideBar ? "275px" : "25px")};
+  left: ${(props) => (props.showSideBar ? "275px" : "25px")};
   &:hover {
     background-color: ${ThemeSub}
   }
@@ -99,7 +99,7 @@ export const MenuButtonCont = styled.form`
 export const SideBar = styled.div`
   position: fixed;
   z-index: 1000;
-  width: ${props => (props.showSideBar ? "250px" : "0px")};
+  width: ${(props) => (props.showSideBar ? "250px" : "0px")};
   height: 100vh;
   transition: width: 2s;
   background-color: ${ThemeSub};
@@ -151,6 +151,10 @@ export const SuccessfulReq = styled.div`
 	flex-direction: column;
 `;
 
+export const ErrorReq = styled(SuccessfulReq)`
+	width: 45%;
+`;
+
 export const PortfolioCont = styled.div`
 	display: flex;
 	flex-wrap: wrap;
@@ -158,9 +162,16 @@ export const PortfolioCont = styled.div`
 	justify-content: center;
 `;
 
-export const LoadingCont = styled.div`
-	background-color: rgba(10,10,10,50);
+export const LoaderCont = styled.div`
 	z-index: 1000;
-	width: 100vw;
-	height: 100vh;
+	position: absolute;
+	left: calc(50vw - 75px);
+	top: ${(props) => props.top && `${props.top + 175}px`};
+	background-color: ${ThemeSub};
+	height: 50px;
+	width: 150px;
+	display: flex;
+	place-content: center;
+	border: 1px solid ${ThemeAccent};
+	border-radius: 5px;
 `;
