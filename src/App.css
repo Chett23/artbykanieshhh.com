@@ -5,8 +5,9 @@
 .Dropzone {
 	height: auto;
 	width: 98.5%;
-	background-color: #fff;
+	background-color: #e8ebe4;
 	border: 2px dashed #b9cdda;
+	border-radius: 5px;
 	display: flex;
 	align-items: center;
 	justify-content: center;

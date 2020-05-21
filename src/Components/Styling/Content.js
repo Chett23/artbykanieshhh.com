@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import DatePicker from "react-datepicker";
-import { ThemeSub2, ThemeSub, ThemeAccent, ThemeAccent2, ErrorColor } from "./Theme";
+import { ThemeSub2, ThemeSub, ThemeAccent, ErrorColor } from "./Theme";
 
 export const Title = styled.h1`
   font-size: ${props => props.size || "2em"}
@@ -23,10 +23,15 @@ export const FileNameText = styled.p`
 	margin: 1px;
 `;
 
+export const PricingText = styled(Text)`
+	font-size: 1em;
+	font-weight: bold;
+`;
+
 export const MainLogo = styled.img`
-  min-width: ${props => props.width || "400px"}
-  max-width: ${props => props.width || "500px"}
-  margin: ${props => props.margin || "25px"};
+  min-width: ${props => props.width || "350px"}
+  max-width: ${props => props.width || "350px"}
+  margin: ${props => props.margin || "15px"};
   
   @media screen and (max-width: 625px) {
     max-width: 75%;
@@ -47,9 +52,10 @@ export const InputField = styled.input`
 	border-radius: 3px;
 	border: none;
 	margin: 5px;
+	background-color: ${ThemeAccent};
 	color: ${ThemeSub2};
 	padding: 5px 10px;
-	border: 1px solid ${props=> props.required ? ErrorColor : ThemeAccent};
+	border: 1px solid ${props=> props.required ? ErrorColor : ThemeSub};
 `;
 
 export const Button = styled.button`
@@ -57,6 +63,7 @@ export const Button = styled.button`
 	border-radius: 3px;
 	border: none;
 	margin: 5px;
+	background-color: ${ThemeAccent};
 	color: ${ThemeSub2};
 	padding: 5px 10px;
 	cursor: pointer;
@@ -71,14 +78,14 @@ export const DropDownFieldDiv = styled.div`
 	border: none;
 	margin: 5px;
 	padding: 5px 10px;
-	background-color: #fff;
+	background-color: ${ThemeAccent};
 	color: ${ThemeSub2};
 	font-size: 0.75em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	cursor: pointer;
-	border: 1px solid ${props=> props.required ? ErrorColor : ThemeAccent};
+	border: 1px solid ${props=> props.required ? ErrorColor : ThemeSub};
 `;
 
 export const DatePickerField = styled(DatePicker)`
@@ -86,7 +93,8 @@ export const DatePickerField = styled(DatePicker)`
 	width: 95%;
 	max-width: 95%;
 	border-radius: 3px;
-	border: 1px solid ${props=> props.required ? ErrorColor : ThemeAccent};
+	background-color: ${ThemeAccent};
+	border: 1px solid ${props=> props.required ? ErrorColor : ThemeSub};
 	margin: 5px;
 	padding: 5px 10px;
 	color: ${ThemeSub2}
@@ -94,8 +102,9 @@ export const DatePickerField = styled(DatePicker)`
 
 export const TextAreaField = styled.textarea`
 	border-radius: 3px;
-	border: none;
+	border: 1px solid ${ThemeSub};
 	margin: 5px;
+	background-color: ${ThemeAccent};
 	width: calc(100%-30px);
 	height: 155px;
 	padding: 10px;
@@ -103,11 +112,11 @@ export const TextAreaField = styled.textarea`
 `;
 
 export const SizeMenu = styled.ul`
-	background-color: #ffffff;
+	background-color: ${ThemeAccent};
 	color: ${ThemeSub2};
 	width: ${props => props.width + "px"};
 	margin: 0 auto;
-  border: 1px solid ${ThemeAccent}
+  border: 1px solid ${ThemeSub}
 	border-radius: 3px;
 	padding: 0;
 	z-index: 100;

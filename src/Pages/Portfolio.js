@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import InstagramEmbed from "react-instagram-embed";
+import { Link } from "react-router-dom";
 
 import logoMain from "../Resourses/logo_main.png";
 import {
@@ -8,7 +9,7 @@ import {
 	TitleRow,
 	LogoRow,
 } from "../Components/Styling/Containers";
-import { Title, MainLogo, LogoButton } from "../Components/Styling/Content";
+import { MainLogo, LogoButton } from "../Components/Styling/Content";
 import { FaceBook, Instagram } from "../Components/Logos";
 import { useFetch } from "../Utils/useFetch";
 
@@ -28,9 +29,10 @@ export default function Portfolio() {
 	return (
 		<MainCol alignItems="center" justifyContent="space-around">
 			<TitleRow>
-				<MainLogo src={logoMain} alt="" />
+				<Link to="/">
+					<MainLogo src={logoMain} alt="" width={"250px"} />
+				</Link>
 			</TitleRow>
-			<Title>Portfolio</Title>
 			<PortfolioCont>
 				{postData &&
 					postData.map((post) => (

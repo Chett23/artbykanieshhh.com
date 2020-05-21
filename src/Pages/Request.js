@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import logoMain from "../Resourses/logo_main.png";
 import { MainCol, TitleRow, LogoRow } from "../Components/Styling/Containers";
@@ -11,7 +12,9 @@ export default function Portfolio() {
 	return (
 		<MainCol>
 			<TitleRow>
-				<MainLogo src={logoMain} alt="" />
+				<Link to="/">
+					<MainLogo src={logoMain} alt="" width={"250px"} />
+				</Link>
 			</TitleRow>
 			<RequestForm />
 			<LogoRow>

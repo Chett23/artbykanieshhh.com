@@ -9,7 +9,7 @@ import Portfolio from "./Pages/Portfolio";
 import Request from "./Pages/Request";
 import Pricing from "./Pages/Pricing";
 import PageNotFound from "./Pages/PageNotFound";
-import UnderConstruction from "./Pages/UnderConstruction";
+
 
 import {
 	MainCont,

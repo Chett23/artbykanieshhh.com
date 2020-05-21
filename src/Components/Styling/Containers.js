@@ -53,8 +53,8 @@ export const Row = styled.div`
 export const TitleRow = styled(Row)`
 	justify-content: center;
 	align-items: center;
-	min-height: 500px;
-	margin: 35px auto;
+	margin: 25px auto;
+	${(props) => props.height && `height: ${props.height}`}
 `;
 
 export const LogoRow = styled(Row)`
@@ -137,9 +137,34 @@ export const RequestCont = styled.form`
 	width: 70%;
 	max-width: 85%;
 	min-height: 500px;
-	margin: 50px auto;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+`;
+
+export const PricingRow = styled(Row)`
+	width: 70%;
+	max-width: 70%;
+	align-items: center;
+	justify-content: space-around;
+
+	@media screen and (max-width: 850px) {
+		flex-direction: column;
+	}
+`;
+
+export const PricingCol = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: ${(props) => props.justifyContent || "flex-start"};
+	align-items: ${(props) => props.alignItems || "stretch"};
+	width: 25%;
+	min-width: 200px;
+	background-color: ${ThemeAccent};
+	border-radius: 5px;
+	border: 1px solid ${ThemeSub};
+	padding: 15px 3%;
+	margin: 15px;
 `;
 
 export const SuccessfulReq = styled.div`
@@ -157,6 +182,7 @@ export const ErrorReq = styled(SuccessfulReq)`
 
 export const PortfolioCont = styled.div`
 	display: flex;
+	width: 85%;
 	flex-wrap: wrap;
 	margin: 0 auto;
 	justify-content: center;
@@ -175,3 +201,4 @@ export const LoaderCont = styled.div`
 	border: 1px solid ${ThemeAccent};
 	border-radius: 5px;
 `;
+

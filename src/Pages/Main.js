@@ -25,7 +25,7 @@ export default function Main() {
 		if (!loading && !error && data && !data.error) {
 			tempFavs = data.filter(
 				(post) =>
-					post.id === "17900327341417651" ||
+					post.id === "17852373274839570" ||
 					post.id === "17862358330647480" ||
 					post.id === "17842116844910981"
 			);
@@ -36,7 +36,7 @@ export default function Main() {
 
 	return (
 		<MainCol>
-			<TitleRow>
+			<TitleRow height={'400px'}>
 				<MainLogo src={logoMain} alt="" />
 			</TitleRow>
 			<FavoritePostsRow>
