@@ -20,7 +20,6 @@ export default function Portfolio() {
 	);
 
 	useEffect(() => {
-		console.log(data);
 		if (!loading && !error && data && !data.error) {
 			setPostData(data);
 		}
