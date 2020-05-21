@@ -53,7 +53,6 @@ export default function Main() {
 					))
 				)}
 			</FavoritePostsRow>
-			{/*  */}
 			<RequestForm />
 			<LogoRow>
 				<LogoButton
