@@ -10,7 +10,7 @@ import {
 	InputCol,
 	SuccessfulReq,
 	LoaderCont,
-	ErrorReq
+	ErrorReq,
 } from "./Styling/Containers";
 import {
 	InputField,
@@ -114,7 +114,7 @@ export default function RequestForm() {
 	return success ? (
 		<SuccessfulReq>
 			<Title>Success</Title>
-			<Text align={'center'}>
+			<Text align={"center"}>
 				Thank you so much for your request, We will contact you shortly to
 				confirm details. Have a great day!
 			</Text>
@@ -131,7 +131,9 @@ export default function RequestForm() {
 	) : error ? (
 		<ErrorReq>
 			<Title color={ErrorColor}>Error</Title>
-			<Text color={ErrorColor} align={'center'}>Something went wrong, please try again.</Text>
+			<Text color={ErrorColor} align={"center"}>
+				Something went wrong, please try again.
+			</Text>
 			<Button
 				onClick={() => {
 					setSelectedDate(undefined);

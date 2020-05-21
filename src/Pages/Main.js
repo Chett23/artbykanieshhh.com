@@ -17,7 +17,7 @@ export default function Main() {
 	const [postData, setPostData] = useState([]);
 	const [favorites, setFavorites] = useState([]);
 	const { data, loading, error } = useFetch(
-		`https://graph.instagram.com/me/media?fields=id,username,permalink,media_url&access_token=${process.env.REACT_APP_Access_Token}`
+		`https://graph.instagram.com/me/media?fields=id,username,permalink,media_url&access_token=${process.env.REACT_APP_Access_token}`
 	);
 
 	useEffect(() => {
