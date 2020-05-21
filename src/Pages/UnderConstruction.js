@@ -2,19 +2,17 @@ import React from "react";
 
 import logoMain from "../Resourses/logo_main.png";
 
-import { MainCol, LogoRow } from "../Components/Styling/Containers";
-import { Title, Text } from "../Components/Styling/Content";
+import { MainCol, LogoRow, TitleRow } from "../Components/Styling/Containers";
+import { Title, Text, MainLogo } from "../Components/Styling/Content";
 import { FaceBook, Instagram } from "../Components/Logos";
 import { ThemeSub2 } from "../Components/Styling/Theme";
 
 export default function UnderConstruction() {
   return (
     <MainCol alignItems="center" justifyContent="space-around">
-      <img
-        src={logoMain}
-        style={{ margin: "15px" }}
-        alt=""
-      />
+			<TitleRow>
+				<MainLogo src={logoMain} alt="" />
+			</TitleRow>
 
       <br />
       <Title>Gone Hiking...</Title>
