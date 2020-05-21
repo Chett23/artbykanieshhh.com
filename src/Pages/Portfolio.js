@@ -15,7 +15,7 @@ import { useFetch } from "../Utils/useFetch";
 export default function Portfolio() {
 	const [postData, setPostData] = useState();
 	const { data, loading, error } = useFetch(
-		process.env.REACT_APP_Instagram_me_node
+		`https://graph.instagram.com/me/media?fields=id,username,permalink,media_url&access_token=${process.env.REACT_APP_Access_Token}`
 	);
 
 	useEffect(() => {
