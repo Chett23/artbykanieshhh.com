@@ -36,7 +36,7 @@ export default function Main() {
 
 	return (
 		<MainCol>
-			<TitleRow height={'400px'}>
+			<TitleRow height={"400px"}>
 				<MainLogo src={logoMain} alt="" />
 			</TitleRow>
 			<FavoritePostsRow>
@@ -53,6 +53,7 @@ export default function Main() {
 					))
 				)}
 			</FavoritePostsRow>
+			{/*  */}
 			<RequestForm />
 			<LogoRow>
 				<LogoButton
