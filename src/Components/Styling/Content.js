@@ -45,8 +45,8 @@ export const Label = styled.span`
 	font-size: 1em;
 	margin: 5px;
 	color: ${ThemeSub2};
-  @media screen and (max-width: 850px) {
-		font-size: .75em;
+	@media screen and (max-width: 850px) {
+		font-size: 0.75em;
 	}
 `;
 
@@ -60,6 +60,10 @@ export const InputField = styled.input`
 	color: ${ThemeSub2};
 	padding: 5px 10px;
 	border: 1px solid ${(props) => (props.required ? ErrorColor : ThemeSub)};
+`;
+
+export const SubmitBtn = styled(InputField)`
+	width: calc(100% - 6px);
 `;
 
 export const Button = styled.button`
@@ -96,7 +100,7 @@ export const DropDownFieldDiv = styled.div`
 export const DatePickerField = styled(DatePicker)`
 	height: 30px;
 	max-width: calc(100% - 30px) !important;
-	width:  calc(100% - 30px) !important;
+	width: calc(100% - 30px) !important;
 	border-radius: 3px;
 	background-color: ${ThemeAccent};
 	border: 1px solid ${(props) => (props.required ? ErrorColor : ThemeSub)};

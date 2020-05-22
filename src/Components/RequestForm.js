@@ -22,6 +22,7 @@ import {
 	SizeMenu,
 	SizeMenuItem,
 	Text,
+	SubmitBtn,
 	DropDownFieldDiv,
 	Button,
 } from "./Styling/Content";
@@ -272,7 +273,7 @@ export default function RequestForm() {
 				</Row>
 				<Row justifyContent={"center"}>
 					<InputCol width={"95%"}>
-						<InputField type="submit" />
+						<SubmitBtn type="submit" />
 					</InputCol>
 				</Row>
 			</RequestCont>
