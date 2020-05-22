@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import logoMain from "../Resourses/logo_main.png";
 import {
@@ -8,6 +7,7 @@ import {
 	TitleRow,
 	Row,
 	Col,
+	LogoLink,
 	PricingRow,
 	PricingCol,
 } from "../Components/Styling/Containers";
@@ -24,9 +24,9 @@ export default function Portfolio() {
 	return (
 		<MainCol alignItems="center" justifyContent="space-around">
 			<TitleRow>
-				<Link to="/">
+				<LogoLink to="/" >
 					<MainLogo src={logoMain} alt="" width={"250px"} />
-				</Link>
+				</LogoLink>
 			</TitleRow>
 			<PricingRow>
 				<PricingCol width="30%">
