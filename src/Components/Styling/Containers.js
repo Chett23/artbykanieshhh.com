@@ -30,6 +30,7 @@ export const InputCol = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: ${(props) => props.width || "45%"};
+	max-width: 100%;
 	max-height: "40px";
 	overflow-y: visible;
 	margin: 10px;
@@ -123,6 +124,11 @@ export const NavLink = styled(Link)`
 	}
 `;
 
+export const LogoLink = styled(Link)`
+	display: flex;
+	justify-content: center;
+`;
+
 export const FeedRow = styled.div`
 	width: 80%;
 	max-width: 85%;
@@ -201,4 +207,3 @@ export const LoaderCont = styled.div`
 	border: 1px solid ${ThemeAccent};
 	border-radius: 5px;
 `;
-

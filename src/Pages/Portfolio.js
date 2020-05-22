@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import InstagramEmbed from "react-instagram-embed";
-import { Link } from "react-router-dom";
 
 import logoMain from "../Resourses/logo_main.png";
 import {
@@ -8,6 +7,7 @@ import {
 	PortfolioCont,
 	TitleRow,
 	LogoRow,
+	LogoLink
 } from "../Components/Styling/Containers";
 import { MainLogo, LogoButton } from "../Components/Styling/Content";
 import { FaceBook, Instagram } from "../Components/Logos";
@@ -28,9 +28,9 @@ export default function Portfolio() {
 	return (
 		<MainCol alignItems="center" justifyContent="space-around">
 			<TitleRow>
-				<Link to="/">
+				<LogoLink to="/">
 					<MainLogo src={logoMain} alt="" width={"250px"} />
-				</Link>
+				</LogoLink>
 			</TitleRow>
 			<PortfolioCont>
 				{postData &&
