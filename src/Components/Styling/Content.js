@@ -32,11 +32,11 @@ export const MainLogo = styled.img`
   min-width: ${(props) => props.width || "350px"}
   max-width: ${(props) => props.width || "350px"}
   margin: ${(props) => props.margin || "15px"};
-  
+  object-fit: cover;
   @media screen and (max-width: 850px) {
     max-width: 75%;
     min-width: 75%;
-    margin: 0;
+		margin: 0;
   }
 `;
 
