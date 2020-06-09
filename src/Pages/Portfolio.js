@@ -7,7 +7,7 @@ import {
 	PortfolioCont,
 	TitleRow,
 	LogoRow,
-	LogoLink
+	LogoLink,
 } from "../Components/Styling/Containers";
 import { MainLogo, LogoButton } from "../Components/Styling/Content";
 import { FaceBook, Instagram } from "../Components/Logos";
