@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import ReactLoading from "react-loading";
 import DropZone from "./DropZone";
-import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -26,7 +25,7 @@ import {
 	DropDownFieldDiv,
 	Button,
 } from "./Styling/Content";
-import { ThemeAccent, ErrorColor, ThemeSub2, ThemeSub } from "./Styling/Theme";
+import { ThemeAccent, ErrorColor } from "./Styling/Theme";
 
 export default function RequestForm() {
 	const twoWeekMin = new Date(Date.now() + 12096e5); //new date 14 days from current date
@@ -47,19 +46,6 @@ export default function RequestForm() {
 		email: "",
 		description: "",
 	});
-
-	const datePickerStyle = {
-		height: "30px",
-		maxWidth: nameRef.current && nameRef.current.offsetWidth + "px",
-		borderRadius: "3px",
-		backgroundColor: ThemeAccent,
-		border: `1px solid ${
-			required && selectedDate === undefined ? ErrorColor : ThemeSub
-		}`,
-		margin: "5px",
-		padding: "5px 10px",
-		color: ThemeSub2,
-	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
