@@ -46,10 +46,6 @@ export const Row = styled.div`
 	flex-direction: row;
 	justify-content: ${(props) => props.justifyContent || "flex-start"};
 	align-items: ${(props) => props.alignItems || "stretch"};
-	max-width: ${(props) => props.width || "100%"};
-	min-width: ${(props) => props.width || "100%"};
-	max-height: ${(props) => props.height || "100%"};
-	min-height: ${(props) => props.height || "100%"};
 `;
 
 export const TitleRow = styled(Row)`
@@ -61,9 +57,15 @@ export const TitleRow = styled(Row)`
 
 export const TopBar = styled(Row)`
 	width: 100%;
-	height: 45px;
-	background-color: ${ThemeSub2};
-	position: fixed;
+	justify-content: center;
+	align-items: center;
+	z-index: 100;
+	transition: 250ms;
+	min-height: ${(props) => props.scrolled ? '85px' : '200px'}
+	max-height: ${(props) => props.scrolled ? '85px' : '200px'}
+	${(props) => props.scrolled && `background-color: ${ThemeSub2}`}
+	${(props) => props.scrolled && `position: fixed;`}
+	${(props) => props.scrolled || 'margin: 25px auto;'}
 `
 
 export const LogoRow = styled(Row)`
@@ -105,6 +107,25 @@ export const MenuButtonCont = styled.form`
   }
 `;
 
+export const ReturnToTopCont = styled.form`
+  bottom:25px;
+  right:25px;
+  border: 1px solid ${ThemeAccent2}
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  cursor: pointer;
+  &:hover {
+    background-color: ${ThemeSub2}
+  }
+`;
+
 export const SideBar = styled.div`
   position: fixed;
   z-index: 1000;
@@ -122,7 +143,7 @@ export const SideBarContentCont = styled(Col)`
 export const NavLink = styled(Link)`
 	text-decoration: none;
 	font-weight: bold;
-	font-size: 1.25em;
+	font-size: 2em;
 	width: auto;
 	margin: 15px 40px;
 	padding: 10px;

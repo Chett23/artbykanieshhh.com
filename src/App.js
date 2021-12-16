@@ -43,6 +43,7 @@ function App() {
 			>
 				<Hamburger />
 			</MenuButtonCont>
+			
 			<SideBar showSideBar={showSideBar}>
 				{showSideBar && (
 					<SideBarContentCont>
