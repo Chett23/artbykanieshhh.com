@@ -1,6 +1,6 @@
-export const ThemeMain = '#F6B9B9'
-export const ThemeSub = '#B9CDDA'
-export const ThemeSub2 = '#6B7D7D'
-export const ThemeAccent = '#E8EBE4'
-export const ThemeAccent2 = '#2B4162'
+export const ThemeMain = '#FFFFFF'
+export const ThemeSub = '#000000'
+export const ThemeSub2 = '#B4B8C5'
+export const ThemeAccent = '#646E68'
+export const ThemeAccent2 = '#344966'
 export const ErrorColor = '#F32013';

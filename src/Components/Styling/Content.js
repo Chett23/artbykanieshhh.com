@@ -28,20 +28,19 @@ export const PricingText = styled(Text)`
 	font-weight: bold;
 `;
 
+
 export const MainLogo = styled.img`
-  min-width: ${(props) => props.width || "350px"}
-  max-width: ${(props) => props.width || "350px"}
-  min-height: ${(props) => props.width || "350px"}
-  max-height: ${(props) => props.width || "350px"}
-  margin: ${(props) => props.margin || "15px"};
+	${(props) => props.scrolled ? 'height: 50px' : ''}
+	${(props) => props.scrolled ? '' : 'width: 250px'}
 	object-fit: contain;
-	
-  @media screen and (max-width: 850px) {
-    max-width: 75%;
-    min-width: 75%;
-		margin: 0;
-  }
-`;
+	margin: 15px;
+
+	@media screen and (max-width: 850px) {
+		max-width: 75%;
+		min-width: 75%;
+			margin: 0;
+	}
+`
 
 export const Label = styled.span`
 	font-weight: bold;
