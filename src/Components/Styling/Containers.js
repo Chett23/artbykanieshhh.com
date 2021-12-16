@@ -8,6 +8,7 @@ import {
 } from "./Theme";
 import { Link } from "react-router-dom";
 
+
 export const MainCont = styled.div`
 	background-color: ${ThemeMain};
 	min-height: 100vh;
@@ -57,6 +58,13 @@ export const TitleRow = styled(Row)`
 	margin: 25px auto;
 	${(props) => props.height && `height: ${props.height}`}
 `;
+
+export const TopBar = styled(Row)`
+	width: 100%;
+	height: 45px;
+	background-color: ${ThemeSub2};
+	position: fixed;
+`
 
 export const LogoRow = styled(Row)`
 	justify-content: center;
@@ -115,7 +123,8 @@ export const NavLink = styled(Link)`
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 1.25em;
-	margin: 15px 0;
+	width: auto;
+	margin: 15px 40px;
 	padding: 10px;
 	color: ${ThemeAccent2};
 	border-radius: 5px;
